@@ -91,7 +91,6 @@ dsh-workspace-files/
 │       ├── FileBrowser.tsx   # file tree UI component
 │       ├── locales.ts        # Chinese/English dictionary
 │       └── wsf.css.ts        # panel styles
-├── lib/                      # build artifacts
 ├── tsdown.config.ts          # build configuration
 ├── package.json
 └── cordis.patch.yml          # bundle loading patch

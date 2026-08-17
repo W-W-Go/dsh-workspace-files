@@ -91,7 +91,6 @@ dsh-workspace-files/
 │       ├── FileBrowser.tsx   # 文件树 UI 组件
 │       ├── locales.ts        # 中英文案字典
 │       └── wsf.css.ts        # 面板样式
-├── lib/                      # 构建产物
 ├── tsdown.config.ts          # 构建配置
 ├── package.json
 └── cordis.patch.yml          # bundle 加载 patch
