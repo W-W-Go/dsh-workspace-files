@@ -16,35 +16,34 @@ DSH Web UI 插件：左侧栏底部"文件"按钮 → 浮动文件树面板，�
 ### 从 GitHub 安装
 
 ```bash
+# 1. 安装插件
 cd ~/.dsh/profiles/web
 pnpm add github:yourname/dsh-workspace-files
+
+# 2. 一键安装（构建 + 注册 bundle）
+node node_modules/dsh-workspace-files/scripts/setup.mjs \
+  --dsh-checkout ~/deepseek-harness \
+  --profile web
+
+# 3. 重启 DSH Web UI
 ```
 
 ### 从本地安装
 
 ```bash
+# 1. 安装插件
 cd ~/.dsh/profiles/web
 pnpm add /path/to/dsh-workspace-files
+
+# 2. 一键安装
+node node_modules/dsh-workspace-files/scripts/setup.mjs \
+  --dsh-checkout ~/deepseek-harness \
+  --profile web
+
+# 3. 重启 DSH Web UI
 ```
 
-### 启用插件
-
-编辑 `~/.dsh/profiles/web/package.json`，在 `dsh.profile.bundles` 数组中添加：
-
-```json
-{
-  "dsh": {
-    "profile": {
-      "bundles": [
-        "dsh-workspace-files",
-        // ... 其他插件
-      ]
-    }
-  }
-}
-```
-
-重启 DSH Web UI 生效。
+> **提示**：也可用环境变量 `DSH_CHECKOUT=~/deepseek-harness node scripts/setup.mjs`
 
 ## 前提
 
