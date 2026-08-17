@@ -2,7 +2,7 @@
 
 DSH Web UI 插件：左侧栏底部"文件"按钮 → 浮动文件树面板，浏览当前会话 workspace 的目录；目录/文件可在 Finder 或 VS Code 中打开。
 
-![demo](https://via.placeholder.com/800x400?text=workspace-files-plugin+demo)
+![demo](screenshots/demo.png)
 
 ## 功能
 
@@ -52,12 +52,11 @@ node node_modules/dsh-workspace-files/scripts/setup.mjs \
 
 ## 验证
 
-安装后确认：
+安装重启后：
 
 1. 浏览器左侧栏底部出现"文件"（中文）/ "Files"（英文）按钮
 2. 点击弹出文件树面板，跟随当前会话 workspace
-3. `curl localhost:3080/plugins/dsh-workspace-files/client.js` → HTTP 200
-4. `curl "localhost:3080/ws-files/list?path=/Users"` → JSON 列表
+3. 目录/文件可正常打开
 
 ## 开发
 
@@ -70,6 +69,16 @@ DSH_CHECKOUT=/path/to/deepseek-harness pnpm build
 构建产物输出到 `lib/` 目录：
 - `lib/index.js` — host 半（HTTP 端点）
 - `lib/client.js` — browser 半（UI 面板）
+
+### 调试命令
+
+```bash
+# 检查浏览器端 bundle 是否加载
+curl localhost:3080/plugins/dsh-workspace-files/client.js
+
+# 检查 host 端点是否返回文件列表
+curl "localhost:3080/ws-files/list?path=/Users"
+```
 
 ### 目录结构
 
