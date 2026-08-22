@@ -17,9 +17,12 @@ if (!DSH_CHECKOUT) {
   throw new Error('DSH_CHECKOUT not set. Set it to your deepseek-harness checkout path, e.g.: DSH_CHECKOUT=~/deepseek-harness pnpm build')
 }
 
-// Dynamic import: CLIENT_EXTERNALS comes from the user's DSH checkout at build time.
-// The platform-module list must not drift from the shell's seed table.
-const { CLIENT_EXTERNALS } = await import(`${DSH_CHECKOUT}/packages/client/tsdown.client.ts`)
+// Dynamic import: the platform-module list comes from the user's DSH checkout
+// at build time. It must not drift from the shell's seed table. (Since DSH
+// 0.1.1 the list lives in web/src/platform.ts; the old CLIENT_EXTERNALS export
+// in tsdown.client.ts was removed by "build(client): enforce client package
+// boundaries".)
+const { PLATFORM_MODULES, PRELOADED_CLIENT_EXTERNALS } = await import(`${DSH_CHECKOUT}/packages/client/web/src/platform.ts`)
 
 const ID = 'dsh-workspace-files'
 
@@ -52,7 +55,7 @@ export default [
     sourcemap: true,
     // Platform modules resolve from the loader module table at runtime;
     // everything else in this bundle is self-contained (no other deps).
-    deps: { neverBundle: [...CLIENT_EXTERNALS] },
+    deps: { neverBundle: [...PLATFORM_MODULES, ...PRELOADED_CLIENT_EXTERNALS] },
     outputOptions: {
       entryFileNames: 'client.js',
       banner: `window.__ModuleLoader__.load({ id: ${JSON.stringify(ID)}, factory: (require) => {`,

@@ -1,7 +1,7 @@
 {
   "name": "dsh-workspace-files",
   "description": "Workspace file browser: a sidebar footer action opening a floating panel that lists the current session workspace's directory tree (host half serves the file listing endpoint).",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "main": "lib/index.js",
