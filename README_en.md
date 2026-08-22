@@ -18,7 +18,7 @@ DSH Web UI plugin: "Files" button at the bottom of the sidebar → floating file
 ```bash
 # 1. Install the plugin
 cd ~/.dsh/profiles/web
-pnpm add github:yourname/dsh-workspace-files
+pnpm add github:W-W-Go/dsh-workspace-files
 
 # 2. One-click install (build + register bundle)
 node node_modules/dsh-workspace-files/scripts/setup.mjs \

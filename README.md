@@ -18,7 +18,7 @@ DSH Web UI 插件：左侧栏底部"文件"按钮 → 浮动文件树面板，�
 ```bash
 # 1. 安装插件
 cd ~/.dsh/profiles/web
-pnpm add github:yourname/dsh-workspace-files
+pnpm add github:W-W-Go/dsh-workspace-files
 
 # 2. 一键安装（构建 + 注册 bundle）
 node node_modules/dsh-workspace-files/scripts/setup.mjs \
